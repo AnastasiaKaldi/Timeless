@@ -7,7 +7,7 @@ function App() {
       {/* <HomePage /> */}
 
       <div className="bg-black">
-        <h1 className="text-white" style={{ fontFamily: "Pixeloid" }}>
+        <h1 className="text-red-500" style={{ fontFamily: "Pixeloid" }}>
           Are you ready to time travel?
         </h1>
       </div>
