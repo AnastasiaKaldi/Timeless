@@ -8,7 +8,7 @@ function App() {
 
       <div className="bg-black">
         <h1 className="text-white" style={{ fontFamily: "Pixeloid" }}>
-          Vite + React
+          Are you ready to time travel?
         </h1>
       </div>
     </>
