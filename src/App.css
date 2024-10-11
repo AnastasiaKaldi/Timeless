@@ -4,7 +4,7 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-@font-face {
+/* @font-face {
   font-family: 'Pixeloid';
   src: url('../src/assets/pixeloid-font/PixeloidMono-d94EV.ttf');
 }
@@ -15,10 +15,10 @@
   align-items: center;
   width: 100%;
   min-height: 100vh;
-  background-color: #fbbf24; /* Equivalent to bg-amber-400 */
+  background-color: #fbbf24; 
 }
 
 
-
+ */
 
 

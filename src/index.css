@@ -1,7 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 section {
   display: grid;
@@ -15,4 +14,18 @@ html, body, #root {
   width: 100%;
   margin: 0;
   padding: 0;
+}
+
+@font-face {
+  font-family: 'Pixeloid';
+  src: url('../src/assets/pixeloid-font/PixeloidMono-d94EV.ttf');
+}
+
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #fbbf24; /* Equivalent to bg-amber-400 */
 }
