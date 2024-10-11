@@ -2,10 +2,10 @@ import "./App.css";
 
 function App() {
   return (
-    <div className="bg-amber-400 w-full h-full">
-      <h1 className="" style={{ fontFamily: "Pixeloid" }}>
+    <div className="app-container  bg-amber-200 w-full">
+      <div style={{ fontFamily: "Pixeloid" }}>
         Are you ready to time travel???
-      </h1>
+      </div>
     </div>
   );
 }
