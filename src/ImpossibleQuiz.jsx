@@ -3,27 +3,23 @@ import { useState } from "react";
 import { api } from "../convex/_generated/api";
 import "./index.css";
 import Lottie from "react-lottie";
-import animationData from "../public/controller.json";
+import animationData from "../public/multiplayer.json";
 
 function ImpossibleQuiz() {
     const [sessionId, setSessionId] = useState(null);
-    const [userId, setUserId] = useState("user-123"); // Example User ID
+    const [inviteLink, setInviteLink] = useState("");
     const createSession = useMutation(api.quiz.createSession);
-    const addPlayer = useMutation(api.quiz.addPlayerToSession);
-    const updateScore = useMutation(api.quiz.updatePlayerScore);
+    const players = useQuery(api.quiz.getPlayersInSession, { sessionId }) || [];
 
     const handleCreateSession = async () => {
-        const newSessionId = await createSession({ name: "Impossible Quiz Session" });
-        setSessionId(newSessionId);
-    };
+        // Create a new session
+        const newSession = await createSession({ name: "Impossible Quiz Session" });
+        setSessionId(newSession._id); // Assuming newSession contains the _id
 
-    const handleJoinSession = async () => {
-        if (sessionId) {
-            await addPlayer({ sessionId, userId });
-        }
+        // Generate the invite link
+        const link = `${window.location.origin}/quiz/join/${newSession._id}`;
+        setInviteLink(link);
     };
-
-    const players = useQuery(api.quiz.getPlayersInSession, { sessionId });
 
     const defaultOptions = {
         loop: true,
@@ -35,7 +31,7 @@ function ImpossibleQuiz() {
     };
 
     return (
-        <div className="app-container flex flex-wrap text-slate-800 w-full">
+        <div className="app-container flex flex-wrap text-slate-800 w-full border-t border-gray-800">
             {/* Left Section */}
             <div className="relative flex h-screen select-none flex-col justify-center text-center md:w-3/5">
                 <div className="mx-auto w-full max-w-lg rounded-lg object-cover">
@@ -47,7 +43,7 @@ function ImpossibleQuiz() {
                         style={{ fontFamily: "Pixeloid" }}
                     >
                         We&apos;ll do the{" "}
-                        <span className="truncate border-b-8 border-yellow-400 font-bold text-yellow-400">
+                        <span className="truncate border-b-8 border-yellow-400 font-bold text-gray-800">
                             heavy lifting
                         </span>
                     </p>
@@ -57,6 +53,7 @@ function ImpossibleQuiz() {
                     >
                         Crafting the impossible, one journey at a time.
                     </p>
+                    {/* Create Session Button */}
                     <button
                         onClick={handleCreateSession}
                         className="mt-6 rounded-full text-yellow-400 bg-gray-800 px-4 py-2 text-center text-sm font-semibold shadow-md outline-none ring-yellow-500 ring-offset-2 transition hover:bg-green-600 focus:ring-2 md:w-40"
@@ -64,17 +61,22 @@ function ImpossibleQuiz() {
                     >
                         Create Session
                     </button>
-                    <button
-                        onClick={handleJoinSession}
-                        className="mt-4 rounded-full text-yellow-400 bg-gray-800 px-4 py-2 text-center text-sm font-semibold shadow-md outline-none ring-yellow-500 ring-offset-2 transition hover:bg-blue-600 focus:ring-2 md:w-40"
-                        style={{ fontFamily: "Pixeloid" }}
-                    >
-                        Join Session
-                    </button>
+
+                    {/* Display Invite Link */}
+                    {inviteLink && (
+                        <div className="mt-4">
+                            <p className="text-lg">Invite Link:</p>
+                            <div className="bg-gray-100 p-2 rounded">
+                                <span className="text-sm">{inviteLink}</span>
+                            </div>
+                        </div>
+                    )}
+
+                    {/* Display Players */}
                     <ul className="mt-6 text-left">
-                        {players && players.map(player => (
+                        {players.map(player => (
                             <li key={player._id} className="text-lg text-yellow-400">
-                                {player.user_id} - Score: {player.score}
+                                {player.user_name} - Score: {player.score}
                             </li>
                         ))}
                     </ul>
