@@ -1,8 +1,11 @@
 import "./index.css";
 import Lottie from "react-lottie";
 import animationData from "../public/controller.json";
+import { useState } from "react";
+import TutorialPage from "./Tutorial";
 
 function LandingPage() {
+  const [showTutorial, setShowTutorial] = useState(false);
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -11,6 +14,10 @@ function LandingPage() {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
+
+  if (showTutorial) {
+    return <TutorialPage />; // Render the tutorial when the button is clicked
+  }
 
   return (
     <div className="app-container flex flex-wrap text-slate-800 w-full">
@@ -79,6 +86,7 @@ function LandingPage() {
                   type="button"
                   className="mt-6 rounded-full text-yellow-400 bg-gray-800 px-4 py-2 text-center text-sm font-semibold shadow-md outline-none ring-yellow-500 ring-offset-2 transition hover:bg-green-600 focus:ring-2 md:w-40"
                   style={{ fontFamily: "Pixeloid" }}
+                  onClick={() => setShowTutorial(true)}
                 >
                   The adventure begins!
                 </button>

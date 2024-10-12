@@ -1,9 +1,9 @@
 import "./index.css";
-import TheGif from "../dist/assets/test.gif";
+import TheGif from "../dist/assets/congratulations.gif";
 import { useState } from "react";
-import SecondTutorialPage from "./Tutorial2";
+import SecondTutorialPage from "./HomePage";
 
-function Tutorial() {
+function Congratulations() {
   const [showTutorial, setShowTutorial] = useState(false);
   if (showTutorial) {
     return <SecondTutorialPage />; // Render the tutorial when the button is clicked
@@ -29,7 +29,7 @@ function Tutorial() {
 "
           style={{ fontFamily: "Pixeloid" }}
         >
-          This is a tutorial
+          Congraduations!!!!!
         </div>
 
         <div className="my-auto flex max-w-screen-md flex-col justify-center px-6 md:pl-12 pt-8 pt-5 sm:pt-0 md:justify-start">
@@ -40,33 +40,15 @@ function Tutorial() {
                   className="mb-1 mt-2 text-xl  text-gray-600"
                   style={{ fontFamily: "Pixeloid" }}
                 >
-                  Tutorial Section
+                  Congraduations, You completed the tutorial!!!Now are you ready
+                  for the ultimate challenge?
                 </p>
-                <p
-                  className="text-base text-gray-700"
-                  style={{ fontFamily: "Pixeloid" }}
-                >
-                  In a small coastal village nestled between towering cliffs and
-                  the sea, the days passed slowly, with the rhythm of the waves
-                  dictating the flow of life. Fishermen set sail at dawn, their
-                  boats slicing through the morning mist as the scent of salt
-                  and fish mingled in the air. The village itself was a mosaic
-                  of colorful cottages, their roofs adorned with patches of
-                  moss, while narrow cobbled streets wound between them like
-                  veins. At the heart of the village was an ancient oak tree,
-                  its sprawling branches providing shade for the central square.
-                  Beneath it, villagers would gather, sharing stories passed
-                  down through generations. There was a legend, whispered by
-                  elders, of a treasure buried deep within the cliffs, said to
-                  be guarded by the spirits of sailors lost at sea. Though many
-                  had searched for it, none had ever returned with more than a
-                  handful of sea-polished stones.
-                </p>
+
                 <div className="flex justify-center py-6">
                   <img
-                    src={TheGif} // Use the correct path to your GIF (this assumes it's in the public folder)
+                    src={TheGif}
                     alt="Tutorial GIF"
-                    className="max-w-full h-auto" // Adjust styling as needed
+                    className="max-w-full h-auto"
                   />
                 </div>
                 <button
@@ -75,7 +57,7 @@ function Tutorial() {
                   style={{ fontFamily: "Pixeloid" }}
                   onClick={() => setShowTutorial(true)}
                 >
-                  Next
+                  Go Home
                 </button>
               </div>
             </div>
@@ -86,4 +68,4 @@ function Tutorial() {
   );
 }
 
-export default Tutorial;
+export default Congratulations;

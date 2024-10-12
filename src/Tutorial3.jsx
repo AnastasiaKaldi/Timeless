@@ -1,9 +1,9 @@
 import "./index.css";
 import TheGif from "../dist/assets/test.gif";
 import { useState } from "react";
-import SecondTutorialPage from "./Tutorial2";
+import SecondTutorialPage from "./Congratulations";
 
-function Tutorial() {
+function ThirdTutorial() {
   const [showTutorial, setShowTutorial] = useState(false);
   if (showTutorial) {
     return <SecondTutorialPage />; // Render the tutorial when the button is clicked
@@ -29,7 +29,7 @@ function Tutorial() {
 "
           style={{ fontFamily: "Pixeloid" }}
         >
-          This is a tutorial
+          This is another another tutorial
         </div>
 
         <div className="my-auto flex max-w-screen-md flex-col justify-center px-6 md:pl-12 pt-8 pt-5 sm:pt-0 md:justify-start">
@@ -86,4 +86,4 @@ function Tutorial() {
   );
 }
 
-export default Tutorial;
+export default ThirdTutorial;

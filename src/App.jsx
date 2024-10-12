@@ -4,7 +4,9 @@ import "./index.css";
 import { ConvexProvider, ConvexReactClient } from "convex/react";
 
 // Initialize the Convex client
-const convex = new ConvexReactClient("https://judicious-jackal-978.convex.cloud");
+const convex = new ConvexReactClient(
+  "https://judicious-jackal-978.convex.cloud"
+);
 
 function App() {
   return (
