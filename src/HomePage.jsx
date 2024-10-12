@@ -45,7 +45,7 @@ function LandingPage() {
         >
           Introducing...
         </div>
-        <div className="flex justify-center pt-12 md:justify-start md:pl-12 p-2">
+        <div className="flex justify-center pt-3 md:justify-start md:pl-12 p-2">
           <div
             href="#"
             className="text-7xl font-bold text-yellow-400 bg-gray-800 rounded px-2 py-1"
