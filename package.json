@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@leaningtech/cheerpx": "^1.0.0",
     "cheerpx": "^1.0.0",
     "convex": "^1.16.5",
     "framer-motion": "^11.11.8",

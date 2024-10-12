@@ -2,9 +2,37 @@ import "./index.css";
 import TheGif from "../dist/assets/test.gif";
 import { useState } from "react";
 import SecondTutorialPage from "./Tutorial2";
+import * as cheerpx from "@leaningtech/cheerpx";
+
+import { useEffect } from "react";
 
 function Tutorial() {
   const [showTutorial, setShowTutorial] = useState(false);
+  const [cheerpxInstance, setCheerpxInstance] = useState(null);
+
+  useEffect(() => {
+    const loadCheerpX = async () => {
+      if (!cheerpxInstance) {
+        const cheerpxContainer = document.getElementById("cheerpx-container");
+        if (cheerpxContainer) {
+          try {
+            const instance = new cheerpx.CheerpX({
+              // Access CheerpX as a property of the imported object
+              container: cheerpxContainer,
+              wasmPath: "https://cheerpx.io/wasm/cheerpx.wasm",
+              configUrl: "https://cheerpx.io/config.json",
+            });
+            setCheerpxInstance(instance);
+          } catch (error) {
+            console.error("Failed to load CheerpX:", error);
+          }
+        }
+      }
+    };
+
+    loadCheerpX();
+  }, [cheerpxInstance]);
+
   if (showTutorial) {
     return <SecondTutorialPage />; // Render the tutorial when the button is clicked
   }
@@ -14,12 +42,18 @@ function Tutorial() {
       <div className="relative hidden h-screen select-none flex-col justify-center bg-gray-800 text-center md:flex md:w-1/3">
         <div className="mx-auto w-full max-w-lg rounded-lg object-cover"></div>
         <div className="mx-auto px-8 text-white">
-          <p
-            className="my-6 text-4xl font-bold leading-10"
-            style={{ fontFamily: "Pixeloid" }}
-          >
-            This is where the the besh whill be
-          </p>
+          <div className="mx-auto w-full max-w-lg rounded-lg object-cover">
+            <div
+              id="cheerpx-container"
+              className="mx-auto w-4/5 max-w-lg cheerpx-bash"
+              tabIndex={0}
+              style={{
+                height: "500px",
+                width: "500px",
+                border: "2px solid #00ff00",
+              }}
+            ></div>
+          </div>
         </div>
       </div>
       {/* Right Section */}

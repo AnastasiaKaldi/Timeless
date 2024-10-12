@@ -29,3 +29,14 @@ html, body, #root {
   min-height: 100vh;
   background-color: #fbbf24; /* Equivalent to bg-amber-400 */
 }
+
+#cheerpx-container.cheerpx-bash {
+  height: 700px; /* Set a height for the bash shell container */
+  width: 500px; /* Full width for responsiveness */
+  background-color: #000; /* Black background to mimic a terminal */
+  border-radius: 8px; /* Slightly rounded corners */
+  padding: 10px; /* Padding inside the container */
+  color: #00ff00; /* Green text to look like a terminal */
+  overflow-y: auto; 
+  display:flex;/* Scroll if the content exceeds the height */
+}
