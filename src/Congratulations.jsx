@@ -1,5 +1,5 @@
 import "./index.css";
-import TheGif from "../dist/assets/congratulations.gif";
+import TheGif from "../public/congratulations.gif";
 import { useState } from "react";
 import SecondTutorialPage from "./HomePage";
 
