@@ -1,5 +1,5 @@
 import "./index.css";
-// import TheGif from "../public/congratulations.gif";
+import TheGif from "../public/congratulations.gif";
 import { useState } from "react";
 import SecondTutorialPage from "./HomePage";
 
@@ -44,13 +44,13 @@ function Congratulations() {
                   for the ultimate challenge?
                 </p>
 
-                {/* <div className="flex justify-center py-6">
+                <div className="flex justify-center py-6">
                   <img
                     src={TheGif}
                     alt="Tutorial GIF"
                     className="max-w-full h-auto"
                   />
-                </div> */}
+                </div>
                 <button
                   type="button"
                   className="mt-6 rounded-full text-yellow-400 bg-gray-800 px-4 py-2 text-center text-sm font-semibold shadow-md outline-none ring-yellow-500 ring-offset-2 transition hover:bg-purple-600 focus:ring-2 md:w-40"
